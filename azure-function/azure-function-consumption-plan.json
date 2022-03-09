@@ -41,10 +41,12 @@
       }
     },
      "netFrameworkVersion": {
-          "type": "string"
+          "type": "string",
+		  "defaultValue": "v6.0",
       },
       "use32BitWorkerProcess": {
-        "type": "bool"
+        "type": "bool",
+		"defaultValue": true
     },
   },
   "variables": {    	  
