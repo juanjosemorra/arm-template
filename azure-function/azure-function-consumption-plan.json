@@ -4,7 +4,7 @@
   "parameters": {
     "appName": {
       "type": "string",
-      "defaultValue": "[concat('func-example', uniqueString(resourceGroup().id))]",
+      "defaultValue": "[concat('func-', uniqueString(resourceGroup().id))]",
       "metadata": {
         "description": "The name of the function app that you wish to create."
       }
@@ -40,14 +40,10 @@
         "description": "The language worker runtime to load in the function app."
       }
     },
-     "netFrameworkVersion": {
-          "type": "string",
-		  "defaultValue": "v6.0",
-      },
-      "use32BitWorkerProcess": {
-        "type": "bool",
-		"defaultValue": true
-    },
+	"netFrameworkVersion": {
+	  "type": "string",
+	  "defaultValue": "v6.0"
+	}
   },
   "variables": {    	  
     "hostingPlanName": "[concat('plan-', parameters('appName'))]",
@@ -124,7 +120,7 @@
               "value": "[variables('functionWorkerRuntime')]"
             }
           ],
-          "use32BitWorkerProcess": "[parameters('use32BitWorkerProcess')]",
+          "use32BitWorkerProcess": true,
           "netFrameworkVersion": "[parameters('netFrameworkVersion')]"
 
         }
